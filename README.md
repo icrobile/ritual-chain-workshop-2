@@ -1,3 +1,38 @@
+# Ritual Predict – Bootcamp Level 2
+
+**Status:** Assignment Completed  
+**Date:** August 16, 2026  
+**Participant:** [icrobile]
+
+This is my completed work for Ritual Academy Bootcamp Level 2.  
+The original repository provides a production-ready self-resolving prediction market that uses Ritual’s native Scheduler, HTTP precompile and jq precompile.
+
+### Core Idea
+A prediction market that settles itself.  
+No admin, no backend, no manual resolve button.  
+The chain itself wakes the contract at the right block and fetches the required data.
+
+### What I studied in detail
+- How createMarket converts seconds into block numbers
+- How the Scheduler is instructed to call the contract three times
+- How the HTTP precompile works inside a TEE
+- How jq extracts a clean uint256 from the oracle response
+- How the contract decides YES / NO / Invalid
+- How winners safely claim their share
+
+### Technical Highlights
+- Deadlines and resolution are purely block-based
+- Failed oracle reads never count as a NO result
+- Execution fees are deposited in advance into RitualWallet
+- Executor is chosen dynamically at resolution time
+- Payout math is simple and loop-free
+
+### Current Situation
+The public testnet is already offline.  
+I have reviewed all contracts and scripts and prepared the codebase for mainnet deployment.
+
+### Next Steps
+Wait for official mainnet RPC and then deploy.
 # Ritual Predict
 
 A self-resolving binary prediction market on [Ritual Chain](https://docs.ritualfoundation.org).
